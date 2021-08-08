@@ -6,7 +6,8 @@
         x:Class="AvaloniaWpfMessageDialogService.Ava.MainWindow"
         Title="AvaloniaWpfMessageDialogService.Ava">
    
-    <Grid>
-        <TextBlock Text="{Binding Text}" />
-    </Grid>
+    <StackPanel>
+        <TextBlock Text="{Binding Text}" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="50" />
+      <Button Content="TestMessageDialogService" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="50" Command="{Binding TestMessageDialogServiceCommand}" />
+    </StackPanel>
 </Window>

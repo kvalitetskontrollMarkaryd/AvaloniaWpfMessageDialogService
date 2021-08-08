@@ -1,4 +1,6 @@
 ﻿using AvaloniaWpfMessageDialogService.Shared.Service;
+using Prism.Commands;
+using System;
 
 namespace AvaloniaWpfMessageDialogService.Shared.ViewModel
 {
@@ -10,6 +12,8 @@ namespace AvaloniaWpfMessageDialogService.Shared.ViewModel
         public MainViewModel(IMessageDialogService messageDialogService)
         {
             _messageDialogService = messageDialogService;
+
+            TestMessageDialogServiceCommand = new DelegateCommand(TestMessageDialogServiceExecute);
 
             Text = "This is a Text set in MainViewModel";
         }
@@ -24,6 +28,13 @@ namespace AvaloniaWpfMessageDialogService.Shared.ViewModel
                 _text = value;
                 OnPropertyChanged();
             }
+        }
+
+        public DelegateCommand TestMessageDialogServiceCommand { get; }
+
+        private void TestMessageDialogServiceExecute()
+        {
+            throw new NotImplementedException();
         }
     }
 }
