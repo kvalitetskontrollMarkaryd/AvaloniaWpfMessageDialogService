@@ -35,6 +35,17 @@ namespace AvaloniaWpfMessageDialogService.Shared.ViewModel
         private void TestMessageDialogServiceExecute()
         {
             throw new NotImplementedException();
+
+            // TODO: Show a MessageBox or Dialog and get a Result, MVVM. Something like:
+
+            //var result = _messageDialogService.ShowOkCancelDialog(
+            //    "There are changes that have not yet been saved. If you continue, they will be lost. " +
+            //    "Continue?", "Work will be lost! Continue?");
+
+            //if (result == MessageDialogResult.Cancel)
+            //{
+            //    return;
+            //}
         }
     }
 }

@@ -9,7 +9,14 @@
         mc:Ignorable="d">
 
     <StackPanel>
-        <TextBlock Text="{Binding Text}" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="50" />
-        <Button Content="TestMessageDialogService" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="50" Command="{Binding TestMessageDialogServiceCommand}" />
+        <TextBlock Margin="50"
+                   HorizontalAlignment="Center"
+                   VerticalAlignment="Center"
+                   Text="{Binding Text}" />
+        <Button Margin="50"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Center"
+                Command="{Binding TestMessageDialogServiceCommand}"
+                Content="TestMessageDialogService" />
     </StackPanel>
 </Window>
