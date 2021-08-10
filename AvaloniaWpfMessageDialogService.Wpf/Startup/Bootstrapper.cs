@@ -2,6 +2,7 @@
 using Autofac.Extensions.DependencyInjection;
 using AvaloniaWpfMessageDialogService.Shared.Service;
 using AvaloniaWpfMessageDialogService.Shared.ViewModel;
+using AvaloniaWpfMessageDialogService.Wpf.Service;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace AvaloniaWpfMessageDialogService.Wpf.Startup
@@ -21,8 +22,8 @@ namespace AvaloniaWpfMessageDialogService.Wpf.Startup
 
             builder.RegisterType<MainWindow>().AsSelf();
             builder.RegisterType<MainViewModel>().AsSelf();
-
             builder.RegisterType<MessageDialogService>().As<IMessageDialogService>();
+            builder.RegisterType<MessageBoxService>().As<IMessageBoxService>();
 
             builder.Populate(_serviceCollection);
 

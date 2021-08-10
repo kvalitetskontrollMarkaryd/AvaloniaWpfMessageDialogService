@@ -1,25 +1,24 @@
-﻿namespace AvaloniaWpfMessageDialogService.Shared.Service
+﻿using System.Threading.Tasks;
+
+namespace AvaloniaWpfMessageDialogService.Shared.Service
 {
     public class MessageDialogService : IMessageDialogService
     {
-        //public MessageDialogResult ShowOkCancelDialog(string text, string title)
-        //{
-        //    var result = MessageBox.Show(text, title, MessageBoxButton.OKCancel);
-        //    return result == MessageBoxResult.OK
-        //        ? MessageDialogResult.OK
-        //        : MessageDialogResult.Cancel;
-        //}
+        private readonly IMessageBoxService _messageBoxService;
 
-        //public void ShowInfoDialog(string text)
-        //{
-        //    MessageBox.Show(text, "Info");
-        //}
-    }
+        public MessageDialogService(IMessageBoxService windowService)
+        {
+            _messageBoxService = windowService;
+        }
 
-    public enum MessageDialogResult
-    {
-        OK,
-        Cancel,
-        OKCancel
+        public Task<MessageDialogResult> ShowOkCancelDialog<TParent>(TParent parent, string text, string title = null) where TParent : class
+        {
+            return _messageBoxService.ShowOkCancelDialog(parent, text, title);
+        }
+
+        public void ShowInfoDialog(string text, string title)
+        {
+            _messageBoxService.ShowInfoDialog(text, title);
+        }
     }
 }

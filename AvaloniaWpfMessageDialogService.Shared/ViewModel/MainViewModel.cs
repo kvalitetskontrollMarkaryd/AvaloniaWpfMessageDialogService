@@ -1,6 +1,7 @@
 ﻿using AvaloniaWpfMessageDialogService.Shared.Service;
 using Prism.Commands;
 using System;
+using System.Diagnostics;
 
 namespace AvaloniaWpfMessageDialogService.Shared.ViewModel
 {
@@ -32,20 +33,16 @@ namespace AvaloniaWpfMessageDialogService.Shared.ViewModel
 
         public DelegateCommand TestMessageDialogServiceCommand { get; }
 
-        private void TestMessageDialogServiceExecute()
+        private async void TestMessageDialogServiceExecute()
         {
-            throw new NotImplementedException();
+            var result = await _messageDialogService.ShowOkCancelDialog(this, $"This is a OkCancelDialog" +
+                $"{Environment.NewLine}{Environment.NewLine}" +
+                $"Click ok to see InfoDialog", "Question");
 
-            // TODO: Show a MessageBox or Dialog and get a Result, MVVM. Something like:
-
-            //var result = _messageDialogService.ShowOkCancelDialog(
-            //    "There are changes that have not yet been saved. If you continue, they will be lost. " +
-            //    "Continue?", "Work will be lost! Continue?");
-
-            //if (result == MessageDialogResult.Cancel)
-            //{
-            //    return;
-            //}
+                if (result == MessageDialogResult.Ok)
+                {
+                    _messageDialogService.ShowInfoDialog("This is a InfoDialog", "Info");
+                }
         }
     }
 }
